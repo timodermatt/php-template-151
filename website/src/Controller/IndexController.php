@@ -1,29 +1,13 @@
 <?php
 
-namespace ihrname\Controller;
+namespace LucStr\Controller;
 
-use ihrname\SimpleTemplateEngine;
+use LucStr\MessageHandler;
 
-class IndexController 
+class IndexController extends BaseController
 {
-  /**
-   * @var ihrname\SimpleTemplateEngine Template engines to render output
-   */
-  private $template;
-  
-  /**
-   * @param ihrname\SimpleTemplateEngine
-   */
-  public function __construct(SimpleTemplateEngine $template)
-  {
-     $this->template = $template;
-  }
-
-  public function homepage() {
-    echo "INDEX";
-  }
-
-  public function greet($name) {
-  	echo $this->template->render("hello.html.php", ["name" => $name]);
+  public function Index()
+  {  	
+  	return $this->redirectToAction("Post", "Index");
   }
 }

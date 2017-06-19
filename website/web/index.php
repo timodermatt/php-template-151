@@ -1,27 +1,28 @@
 <?php
+use LucStr\Factory;
 
 error_reporting(E_ALL);
+session_start();
 
-require_once("../vendor/autoload.php");
-$tmpl = new ihrname\SimpleTemplateEngine(__DIR__ . "/../templates/");
+$loader = require_once("../vendor/autoload.php");
+LucStr\MessageHandler::Initialize();
+$factory = Factory::crateFromInitFile(__DIR__ . "/../config.ini");
 
-switch($_SERVER["REQUEST_URI"]) {
-	case "/":
-		(new ihrname\Controller\IndexController($tmpl))->homepage();
-		break;
-	case "/test/upload":
-		if(file_put_contents(__DIR__ . "/../../upload/test.txt", "Mein erster Upload")) {
-			echo "It worked";
-		} else {
-			echo "Error happened";
-		}
-		break;
-	default:
-		$matches = [];
-		if(preg_match("|^/hello/(.+)$|", $_SERVER["REQUEST_URI"], $matches)) {
-			(new ihrname\Controller\IndexController($tmpl))->greet($matches[1]);
-			break;
-		}
-		echo "Not Found";
+$uri_parts = strtok($_SERVER["REQUEST_URI"],'?');
+$controllername = strtok($uri_parts,'/');
+$actionname = strtok('/');
+if(empty($controllername)){
+	$controllername = "Index";
+	$actionname = "Index";
+}
+if(empty($actionname)){
+	$actionname = "Index";
 }
 
+$GLOBALS["controllername"] = $controllername;
+$GLOBALS["actionname"] = $actionname;
+
+$controllerlocation = "LucStr\\Controller\\" . $controllername . "Controller";
+$controller = new $controllerlocation($factory);
+
+$controller->executeAction($actionname);
