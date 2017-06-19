@@ -1,12 +1,12 @@
-<h1><?= $post["title"]?></h1>
+<h1><?= htmlentities($post["title"])?></h1>
 <img width="300" height="auto" src="/Post/GetPostImage?postId=<?= $post["postId"] ?>" />
-<p><?= $post["text"] ?></p>
+<p><?= htmlentities($post["text"]) ?></p>
 <p><?= $post["date"]?></p>
 <?php 
 foreach ($comments as $comment){
 ?>
-	<p><?= $comment["username"]?> <?= $comment["date"]?></p>
-	<p><?= $comment["message"]?></p>
+	<p><?= htmlentities($comment["username"])?> <?= $comment["date"]?></p>
+	<p><?= htmlentities($comment["message"])?></p>
 <?php 
 }
 ?>

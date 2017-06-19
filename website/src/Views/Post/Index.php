@@ -8,11 +8,17 @@ if(isset($_SESSION["userId"])){
 foreach ($posts as $post){
 ?>
 <div>
-	<a href="/Post/Detail?postId=<?= $post["postId"]?>"><?= $post["title"]?>
+	<a href="/Post/Detail?postId=<?= $post["postId"]?>"><?= htmlentities($post["title"])?>
 		<img width="100" height="auto" src="/Post/GetPostImage?postId=<?= $post["postId"] ?>" />
 	</a>
 	Likes: <span id="likeCount<?= $post["postId"]?>"><?= $post["likes"] ?></span>
-	<a href="javascript:like(<?= $post["postId"]?>)">Like</a>
+	<?php 
+	if(isset($_SESSION["userId"])){
+	?>
+		<a href="javascript:like(<?= $post["postId"]?>)">Like</a>
+	<?php 
+	}
+	?>
 </div>
 <?php 
 }
