@@ -38,6 +38,7 @@ services:
       MYSQL_ROOT_PASSWORD: my-secret-pw
     volumes:
       - db:/var/lib/mysql
+      - ${PWD}/schema.sql:/docker-entrypoint-initdb.d/schema.sql #folder-content is executed when container starts for the first time
     networks:
       - db
     command: --character-set-server=utf8 --collation-server=utf8_general_ci

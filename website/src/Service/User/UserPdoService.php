@@ -16,7 +16,7 @@ class UserPdoService implements UserService
 		$stmt = $this->pdo->prepare("INSERT INTO user VALUES(NULL, ?, ?, ?, 0, ?)");
 		$stmt->bindValue(1, $username);
 		$stmt->bindValue(2, $email);
-		$stmt->bindValue(3, $this->hashpass($password));
+		$stmt->bindValue(3, password_hash($password, PASSWORD_DEFAULT));
 		$stmt->bindValue(4, $this->generateRandomString());
 		$stmt->execute();
 		return $this->pdo->lastInsertId();
@@ -52,7 +52,7 @@ class UserPdoService implements UserService
 	
 	public function updatePassword($userId, $newPassword){
 		$stmt = $this->pdo->prepare("UPDATE user SET password=? WHERE userId=?");
-		$stmt->bindValue(1, $this->hashpass($newPassword));
+		$stmt->bindValue(1, password_hash($password, PASSWORD_DEFAULT));
 		$stmt->bindValue(2, $userId);
 		$stmt->execute();
 		return $stmt->rowCount();
@@ -63,11 +63,6 @@ class UserPdoService implements UserService
 		$stmt->bindValue(1, $this->generateRandomString());
 		$stmt->bindValue(2, $username);
 		$stmt->execute();
-	}
-	
-	
-	private function hashpass($password){
-		return password_hash($password, PASSWORD_DEFAULT);
 	}
 	
 	private function generateRandomString($length = 10) {

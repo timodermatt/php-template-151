@@ -6,7 +6,6 @@
 	<label>Passwort bestatigen:</label>
 	<input type="password" name="passwordConfirm"/><br>
 	<input type="hidden" name="userId" value="<?= $userId?>"/>
-	<input type="hidden" name="confirmationUUID" value="<?= $confirmationUUID?>"/>
-	
+	<input type="hidden" name="confirmation" value="<?= $confirmation?>"/>	
 	<input value="Bestätigen" type="submit" />
 </form>
