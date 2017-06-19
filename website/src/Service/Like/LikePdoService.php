@@ -15,11 +15,12 @@ class LikePdoService implements LikeService
 		$stmt->bindValue(1, $postId);
 		$stmt->bindValue(2, $userId);
 		$stmt->execute();
-		return $stmt->rowCount();
+		return $stmt->rowCount() > 0;
 	}
-	public function removeLikeById($likeId){
-		$stmt = $this->pdo->prepare("DELETE FROM `like` WHERE likeId = ?");
-		$stmt->bindValue(1, $likeId);
+	public function removeLikeByPostAndUserId($postId, $userId){
+		$stmt = $this->pdo->prepare("DELETE FROM `like` WHERE postId = ? AND userId = ?");
+		$stmt->bindValue(1, $postId);
+		$stmt->bindValue(2, $userId);
 		$stmt->execute();
 		return $stmt->rowCount();
 	}

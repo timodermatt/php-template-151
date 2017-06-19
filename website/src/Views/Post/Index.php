@@ -11,7 +11,7 @@ foreach ($posts as $post){
 	<a href="/Post/Detail?postId=<?= $post["postId"]?>"><?= $post["title"]?>
 		<img width="100" height="auto" src="/Post/GetPostImage?postId=<?= $post["postId"] ?>" />
 	</a>
-	Likes: <lable id="likeCount<?= $post["postId"]?>"><?= $post["likes"] ?><lable>
+	Likes: <span id="likeCount<?= $post["postId"]?>"><?= $post["likes"] ?></span>
 	<a href="javascript:like(<?= $post["postId"]?>)">Like</a>
 </div>
 <?php 

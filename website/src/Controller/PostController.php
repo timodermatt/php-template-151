@@ -106,11 +106,17 @@ class PostController extends BaseController
   		return $this->redirectToAction("Index", "Index");
   	}
   	$likeService = $this->factory->getLikeService();
-  	if($like = $likeService->likeExists($postId, $_SESSION["userId"])){
-  		$likeService->removeLikeById($like["likeId"]);
+  	if($likeService->likeExists($postId, $_SESSION["userId"])){
+  		$likeService->removeLikeByPostAndUserId($postId, $_SESSION["userId"]);
   	}else{
   		$likeService->addLike($postId, $_SESSION["userId"]);
   	}
-  	echo $likeService->likeCount($postId);
+  	$likeCount = $likeService->likeCount($postId);
+  	if($likeCount == null){
+  		echo 0;
+  	}
+  	else{
+  		echo $likeCount;
+  	}
   }
 }

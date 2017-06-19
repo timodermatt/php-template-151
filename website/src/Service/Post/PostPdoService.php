@@ -22,7 +22,7 @@ class PostPdoService implements PostService
 		return $this->pdo->lastInsertId();
 	}
 	public function getAllPosts(){
-		$stmt = $this->pdo->prepare("SELECT * FROM post");
+		$stmt = $this->pdo->prepare("SELECT p.postId, p.text, p.title, p.userId, date, COUNT(l.likeId) AS likes FROM post p LEFT JOIN `like` l on l.postId=p.postId GROUP BY p.postId");
 		$stmt->execute();
 		$data = array();
 		while($row = $stmt->fetch(\PDO::FETCH_ASSOC)){

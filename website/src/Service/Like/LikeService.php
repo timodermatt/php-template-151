@@ -4,7 +4,7 @@ namespace LucStr\Service\Like;
 interface LikeService
 {
 	public function likeExists($postId, $userId);
-	public function removeLikeById($likeId);
+	public function removeLikeByPostAndUserId($postId, $userId);
 	public function addLike($postId, $userId);
 	public function likeCount($postId);
 }
