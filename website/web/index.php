@@ -1,10 +1,11 @@
 <?php
-use LucStr\Factory;
+use timodermatt\Factory;
 
 error_reporting(E_ALL);
 session_start();
 
 $loader = require_once("../vendor/autoload.php");
+$loader->addPsr4('timodermatt\\', "/var/www/php/vendor/composer/../../src");
 LucStr\MessageHandler::Initialize();
 $factory = Factory::crateFromInitFile(__DIR__ . "/../config.ini");
 
@@ -22,7 +23,7 @@ if(empty($actionname)){
 $GLOBALS["controllername"] = $controllername;
 $GLOBALS["actionname"] = $actionname;
 
-$controllerlocation = "LucStr\\Controller\\" . $controllername . "Controller";
+$controllerlocation = "timodermatt\\Controller\\" . $controllername . "Controller";
 $controller = new $controllerlocation($factory);
 
 $controller->executeAction($actionname);

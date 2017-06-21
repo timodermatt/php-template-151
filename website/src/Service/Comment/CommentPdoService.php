@@ -1,7 +1,7 @@
 <?php
 
-namespace LucStr\Service\Comment;
-use LucStr\Service\Comment\CommentService;
+namespace timodermatt\Service\Comment;
+use timodermatt\Service\Comment\CommentService;
 
 class CommentPdoService implements CommentService
 {

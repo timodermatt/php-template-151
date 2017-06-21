@@ -1,6 +1,6 @@
 <?php
 
-namespace LucStr;
+namespace timodermatt;
 
 class Factory 
 {

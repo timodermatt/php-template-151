@@ -1,5 +1,5 @@
 <?php
-namespace LucStr\Service\Comment;
+namespace timodermatt\Service\Comment;
 
 interface CommentService
 {

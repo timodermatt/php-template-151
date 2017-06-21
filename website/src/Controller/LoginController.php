@@ -1,6 +1,7 @@
 <?php
 
-namespace LucStr\Controller;
+namespace timodermatt\Controller;
+use LucStr\Controller\BaseController;
 
 use LucStr\MessageHandler;
 

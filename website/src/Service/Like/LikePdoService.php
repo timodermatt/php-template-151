@@ -1,7 +1,7 @@
 <?php
 
-namespace LucStr\Service\Like;
-use LucStr\Service\Like\LikeService;
+namespace timodermatt\Service\Like;
+use timodermatt\Service\Like\LikeService;
 
 class LikePdoService implements LikeService
 {

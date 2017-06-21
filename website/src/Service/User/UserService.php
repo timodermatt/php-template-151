@@ -1,5 +1,5 @@
 <?php
-namespace LucStr\Service\User;
+namespace timodermatt\Service\User;
 
 interface UserService
 {

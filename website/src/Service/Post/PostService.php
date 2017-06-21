@@ -1,5 +1,5 @@
 <?php
-namespace LucStr\Service\Post;
+namespace timodermatt\Service\Post;
 
 interface PostService
 {

@@ -1,5 +1,5 @@
 <?php
-namespace LucStr\Service\Like;
+namespace timodermatt\Service\Like;
 
 interface LikeService
 {

@@ -2,7 +2,7 @@
 
 namespace LucStr\Controller;
 
-use LucStr\Factory;
+use timodermatt\Factory;
 use LucStr\HtmlHelper;
 
 class BaseController

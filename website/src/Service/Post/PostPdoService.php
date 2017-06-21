@@ -1,7 +1,7 @@
 <?php
 
-namespace LucStr\Service\Post;
-use LucStr\Service\Post\PostService;
+namespace timodermatt\Service\Post;
+use timodermatt\Service\Post\PostService;
 
 class PostPdoService implements PostService
 {
