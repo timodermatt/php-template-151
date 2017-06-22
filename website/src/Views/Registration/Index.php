@@ -6,7 +6,7 @@
 	<label>Username:</label>
 	<input id="username" type="text" name="username" value="<?= (isset($username)) ? $username : "" ?>"/>
 	<p style="display: none;color: red;" id="usernametaken">Dieser Benutzername wird bereits benutzt</p>
-	<label>Passoword:</label>
+	<label>Password:</label>
 	<input type="password" name="password" />
 	<input value="Registrieren" type="submit" />
 </form>

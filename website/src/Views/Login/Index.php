@@ -2,7 +2,7 @@
 <form id="loginform" action="/Login/Authenticate" method="POST">
 	<label>Username:</label>
 	<input type="text" name="username" value="<?= (isset($username)) ? $username : "" ?>"/><br>
-	<label>Passoword:</label>
+	<label>Password:</label>
 	<input type="password" name="password" /><br>	
 	<?= $html->renderCSRF() ?>
 	<input value="Login" type="submit" />
