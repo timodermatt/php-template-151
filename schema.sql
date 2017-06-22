@@ -1,3 +1,6 @@
+	DROP DATABASE IF EXISTS blog;
+CREATE DATABASE blog;
+USE blog;
 -- Adminer 4.2.5 MySQL dump
 
 SET NAMES utf8;
